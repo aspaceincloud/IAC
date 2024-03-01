@@ -13,13 +13,14 @@ pipeline {
                 sh 'cd IAC/env/dev'
                 sh 'terraform fmt'
                 sh 'terraform validate'
+                 sh 'terraform init'
+                sh 'terraform plan -var-file=dev.tfvars'
             }
         }
         stage('run terraform commands') {
             steps {
-                sh 'cd IAC/env/dev'
-                sh 'terraform init'
-                sh 'terraform plan -var-file=dev.tfvars'
+                sh 'echo Hello'
+               
             }
         }
     }
