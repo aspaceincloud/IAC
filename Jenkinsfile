@@ -17,8 +17,9 @@ pipeline {
         }
         stage('run terraform commands') {
             steps {
+                sh 'cd IAC/env/dev'
                 sh 'terraform init'
-                sh 'terraform plan'
+                sh 'terraform plan -var-file=dev.tfvars'
             }
         }
     }
