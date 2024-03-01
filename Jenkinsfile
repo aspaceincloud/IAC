@@ -10,8 +10,9 @@ pipeline {
 
         stage('Check for the terraform syntaxs') {
             steps{
-                sh 'IAC/env/dev/terraform fmt'
-                sh 'IAC/env/dev/terraform validate'
+                sh 'cd IAC/env/dev'
+                sh 'terraform fmt'
+                sh 'terraform validate'
             }
         }
         stage('run terraform commands') {
