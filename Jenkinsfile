@@ -8,15 +8,30 @@ pipeline {
             }
         }
 
-        stage('Check for the terraform syntaxs') {
+        stage('Terraform syntax check') {
             steps{
                  dir("env/dev") {
-                sh 'ls -l'
-                sh 'terraform validate'
+                sh 'terraform fmt'
+                 }
+                }
+        }
+        stage('Initializing and Validation') {
+             steps {
+                dir("env/dev") {
                 sh 'terraform init'
+                sh 'terraform validate'
+                }
+             }
+        }
+
+        stage('Terraform Plan') {
+            steps{
+                dir("env/dev") {
                 sh 'terraform plan -var-file=dev.tfvars' 
                 }
             }
         }
-    }  
-}
+
+    }
+ }
+
