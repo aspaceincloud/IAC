@@ -11,18 +11,11 @@ pipeline {
         stage('Check for the terraform syntaxs') {
             steps{
                 sh 'cd env/dev'
-                sh 'env/dev/terraform fmt'
+                sh 'ls -l'
                 sh 'terraform validate'
-                 sh 'terraform init'
+                sh 'terraform init'
                 sh 'terraform plan -var-file=dev.tfvars'
             }
         }
-        stage('run terraform commands') {
-            steps {
-                sh 'echo Hello'
-               
-            }
-        }
-    }
-
+    }  
 }
