@@ -10,7 +10,7 @@ pipeline {
 
         stage('Check for the terraform syntaxs') {
             steps{
-                 dir("/env/dev") {
+                 dir("env/dev") {
                 sh 'ls -l'
                 sh 'terraform validate'
                 sh 'terraform init'
