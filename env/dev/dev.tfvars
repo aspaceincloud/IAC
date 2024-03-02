@@ -16,6 +16,10 @@ web_vm_attribute={
         name = "pub_b"
         key_name = "for_terra"
       }
+  pub_c = {
+        name = "pub_c"
+        key_name = "for_terra"
+      }
 }
 pri_vm_attribute={
 
