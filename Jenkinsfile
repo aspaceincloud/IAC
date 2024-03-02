@@ -42,7 +42,7 @@ pipeline {
                 expression {return env.CHANGE_ID == null }
             }
            steps{
-            dir("emv/dev") {
+            dir("env/dev") {
                 sh 'terraform apply -auto-approve -var-file=dev.tfvars'
             }
            }
