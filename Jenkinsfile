@@ -38,8 +38,11 @@ pipeline {
             }
         }
         stage('Terraform Apply') {
+            when {
+                expression {return env.CHANGE_ID == null }
+            }
            steps{
-            dir("dev/env") {
+            dir("emv/dev") {
                 sh 'terraform apply -auto-approve -var-file=dev.tfvars'
             }
            }
