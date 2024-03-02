@@ -9,9 +9,6 @@ pipeline {
         }
 
         stage('Terraform syntax check') {
-            when {
-                changeRequest{}
-            }
             steps{
                  dir("env/dev") {
                 sh 'terraform fmt'
@@ -19,9 +16,6 @@ pipeline {
                 }
         }
         stage('Initializing and Validation') {
-             when {
-                changeRequest{}
-            }
              steps {
                 dir("env/dev") {
                 sh 'terraform init'
@@ -31,9 +25,6 @@ pipeline {
         }
 
         stage('Terraform Plan') {
-             when {
-                changeRequest{}
-            }
             steps{
                 dir("env/dev") {
                 sh 'terraform plan -var-file=dev.tfvars' 
