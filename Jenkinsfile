@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         when {
-            changeRequest{}
+            changeRequest()
         }
         stage('Git Checkout') {
             steps {
@@ -13,7 +13,7 @@ pipeline {
 
         stage('Terraform syntax check') {
             when {
-            changeRequest{}
+            changeRequest()
         }
             steps{
                  dir("env/dev") {
@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Initializing and Validation') {
             when {
-            changeRequest{}
+            changeRequest()
         }
              steps {
                 dir("env/dev") {
@@ -35,7 +35,7 @@ pipeline {
 
         stage('Terraform Plan') {
             when {
-            changeRequest{}
+            changeRequest()
         }
             steps{
                 dir("env/dev") {
