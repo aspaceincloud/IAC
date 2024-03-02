@@ -43,7 +43,7 @@ pipeline {
             }
            steps{
             dir("env/dev") {
-                sh 'terraform apply -auto-approve -var-file=dev.tfvars'
+                sh 'terraform destroy -auto-approve -var-file=dev.tfvars'
             }
            }
         }
